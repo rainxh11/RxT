@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32505.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RxT", "RxT\RxT.csproj", "{D27AB664-7EC2-4C70-80F0-33FCA27DDE15}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RxT.ConsoleTest", "RxT.ConsoleTest\RxT.ConsoleTest.csproj", "{36EB8E8C-F02C-486D-9AE8-EB44C8B53BEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D27AB664-7EC2-4C70-80F0-33FCA27DDE15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D27AB664-7EC2-4C70-80F0-33FCA27DDE15}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D27AB664-7EC2-4C70-80F0-33FCA27DDE15}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D27AB664-7EC2-4C70-80F0-33FCA27DDE15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36EB8E8C-F02C-486D-9AE8-EB44C8B53BEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36EB8E8C-F02C-486D-9AE8-EB44C8B53BEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36EB8E8C-F02C-486D-9AE8-EB44C8B53BEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36EB8E8C-F02C-486D-9AE8-EB44C8B53BEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC32B475-D85F-4C06-9259-AC1E05F3F79E}
+	EndGlobalSection
+EndGlobal
