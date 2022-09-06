@@ -1,31 +1,33 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;</TargetFrameworks>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-	  <LangVersion>10.0</LangVersion>
-	  <PackageReadmeFile>readme.md</PackageReadmeFile>
-	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
-	  <OutputType>Library</OutputType>
-	  <Version>1.0.0-beta</Version>
-	  <StartupObject />
-	  <Authors>Chakhoum Ahmed (github.com/rainxh11)</Authors>
-	  <Description>.NET Reactive Objects that provide similar functionalities to: (reactive, ref computed, watch) found in Vue.js</Description>
-	  <Copyright>© 2022 Chakhoum Ahmed</Copyright>
-	  <PackageLicenseFile>LICENSE</PackageLicenseFile>
-	  <PackageProjectUrl>https://github.com/rainxh11/RxT</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/rainxh11/RxT</RepositoryUrl>
-	  <RepositoryType>github</RepositoryType>
-	  <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	  <PackageTags>reactive;rx;reactiveobject;computed</PackageTags>
-	  <TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
-	  <GenerateDocumentationFile>True</GenerateDocumentationFile>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0</TargetFrameworks>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<LangVersion>10.0</LangVersion>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<OutputType>Library</OutputType>
+		<Version>1.0.0-beta</Version>
+		<StartupObject />
+		<Authors>Chakhoum Ahmed (github.com/rainxh11)</Authors>
+		<Description>.NET Reactive Objects that provide similar functionalities to: (reactive, ref computed, watch) found in Vue.js</Description>
+		<Copyright>© 2022 Chakhoum Ahmed</Copyright>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<PackageProjectUrl>https://github.com/rainxh11/RxT</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/rainxh11/RxT</RepositoryUrl>
+		<RepositoryType>github</RepositoryType>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PackageTags>reactive;rx;reactiveobject;computed</PackageTags>
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="System.Reactive" Version="5.0.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Include="..\readme.md" Pack="true" PackagePath="\" />
+		<None Include="..\LICENSE" Pack="true" PackagePath="" />
+		<PackageReference Include="System.Reactive" Version="5.0.0" />
+	</ItemGroup>
 
 	<Target DependsOnTargets="ResolveReferences" Name="CopyProjectReferencesToPackage">
 		<ItemGroup>
