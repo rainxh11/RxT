@@ -5,13 +5,14 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<Nullable>enable</Nullable>
 		<LangVersion>10.0</LangVersion>
+		<PackageIcon>RxT.png</PackageIcon>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<OutputType>Library</OutputType>
 		<Version>1.0.0-beta</Version>
 		<StartupObject />
 		<Authors>Chakhoum Ahmed (github.com/rainxh11)</Authors>
-		<Description>.NET Reactive Objects that provide similar functionalities to: (reactive, ref computed, watch) found in Vue.js</Description>
+		<Description>.NET Reactive Objects that provide functionalities inspired from: (reactive, ref computed) found in Vue.js</Description>
 		<Copyright>© 2022 Chakhoum Ahmed</Copyright>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
 		<PackageProjectUrl>https://github.com/rainxh11/RxT</PackageProjectUrl>
@@ -24,8 +25,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="..\readme.md" Pack="true" PackagePath="\" />
+		<None Include="..\readme.md" Pack="true" PackagePath="" />
 		<None Include="..\LICENSE" Pack="true" PackagePath="" />
+		<None Include="..\RxT.png" Pack="true" PackagePath="" />
 		<PackageReference Include="System.Reactive" Version="5.0.0" />
 	</ItemGroup>
 

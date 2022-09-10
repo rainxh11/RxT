@@ -48,9 +48,27 @@ public class Reactive<T> : INotifyPropertyChanged, IObservable<T>
         return new(obj);
     }
 
+    /// <summary>
+    /// Create Computed object from a reference of this object
+    /// </summary>
+    /// <param name="modifier">Observable Filter Function</param>
+    /// <returns></returns>
     public virtual Computed<T> SpawnComputed(Func<IObservable<T>, IObservable<T>> modifier)
     {
         return new Computed<T>(this, modifier);
+    }
+
+    /// <summary>
+    /// Create Computed object from a reference of this object with a transform function
+    /// </summary>
+    /// <typeparam name="TResult">Transformed Type</typeparam>
+    /// <param name="transform">Transform Function</param>
+    /// <param name="modifier">Observable Filter Function</param>
+    /// <returns></returns>
+    public virtual Computed<T, TResult> SpawnComputed<TResult>(Func<T, TResult> transform,
+        Func<IObservable<T>, IObservable<T>> modifier = null)
+    {
+        return new Computed<T, TResult>(this, transform, modifier);
     }
 
     /// <summary>
