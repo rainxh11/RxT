@@ -1,3 +1,9 @@
+![](https://raw.githubusercontent.com/rainxh11/RxT/master/RxT.svg)
+
+|||
+|-|-|
+|[![Latest version](https://img.shields.io/nuget/v/RxT.svg)](https://www.nuget.org/packages/RxT/)|![Downloads](https://img.shields.io/nuget/dt/RxT.svg)|
+
 # Rx\<T\>
 .NET Reactive Types that provide similar functionalities inspired from: (`reactive`, `ref` & `computed`) found in **Vue.js**
 
