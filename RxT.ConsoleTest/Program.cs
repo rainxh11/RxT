@@ -1,17 +1,24 @@
 ﻿using System.Reactive.Linq;
 using RxT;
 
-var search = new Reactive<string>("");
+var bird = new Reactive<Bird>(new Bird());
 
+var birdSampled = bird.SpawnComputed(observable => observable.Sample(TimeSpan.FromSeconds(1)));
 
-var searchSampled = new Computed<string>(search, (observable) => observable.Sample(TimeSpan.FromSeconds(2)));
-
-searchSampled
-    .Do(Console.WriteLine)
+birdSampled
+    .Do(bird => Console.WriteLine(bird.Name))
     .Subscribe();
+
 
 while (true)
 {
-    search.Value = Path.GetRandomFileName();
-    await Task.Delay(TimeSpan.FromMilliseconds(10));
+    birdSampled.ModifySource((b) => { b.Name = Path.GetRandomFileName() + "_computed"; });
+    await Task.Delay(TimeSpan.FromMilliseconds(1));
+}
+
+
+class Bird
+{
+    public string Name { get; set; } = "";
+    public string Type { get; set; } = "";
 }

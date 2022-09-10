@@ -3,42 +3,6 @@ using System.Reactive.Linq;
 
 namespace RxT;
 
-/// <summary>
-///     Readonly Wrapper Reactive Object for Reactive<T>
-/// </summary>
-/// <typeparam name="T"></typeparam>
-public class Computed<T> : IObservable<T>, INotifyPropertyChanged
-{
-    private readonly Func<IObservable<T>, IObservable<T>> _modifier;
-
-    private readonly Reactive<T> _source;
-
-    /// <summary>
-    ///     Create new Computed Reactive Object
-    /// </summary>
-    /// <param name="reactiveObject">Reactive Object by reference</param>
-    /// <param name="modifier">Modifier function to apply filters to the inner Observable withing 'reactiveObject' parameter</param>
-    public Computed(in Reactive<T> reactiveObject, Func<IObservable<T>, IObservable<T>> modifier)
-    {
-        _source = reactiveObject;
-        _modifier = modifier;
-    }
-
-
-    public T Value => _source.Value;
-
-    public event PropertyChangedEventHandler? PropertyChanged;
-
-    public IDisposable Subscribe(IObserver<T> observer)
-    {
-        return _modifier(_source.InnerObservable)
-            .Do(_ => PropertyChanged?
-                .Invoke(this,
-                    new PropertyChangedEventArgs(nameof(Value))))
-            .Subscribe(observer);
-    }
-}
-
 public class Reactive<T> : INotifyPropertyChanged, IObservable<T>
 
 {
@@ -54,7 +18,7 @@ public class Reactive<T> : INotifyPropertyChanged, IObservable<T>
             .Select(_ => _value);
     }
 
-    public T Value
+    public virtual T Value
     {
         get => _value;
         set
@@ -84,6 +48,11 @@ public class Reactive<T> : INotifyPropertyChanged, IObservable<T>
         return new(obj);
     }
 
+    public virtual Computed<T> SpawnComputed(Func<IObservable<T>, IObservable<T>> modifier)
+    {
+        return new Computed<T>(this, modifier);
+    }
+
     /// <summary>
     ///     Trigger that 'Value' was changed and notify the Observable
     /// </summary>
@@ -92,6 +61,17 @@ public class Reactive<T> : INotifyPropertyChanged, IObservable<T>
         PropertyChanged?
             .Invoke(this,
                 new PropertyChangedEventArgs(nameof(Value)));
+    }
+
+    public void Modify(Action<T, Action> modifyFunction)
+    {
+        modifyFunction(_value, TriggerChange);
+    }
+
+    public void Modify(Action<T> modifyFunction)
+    {
+        modifyFunction(_value);
+        TriggerChange();
     }
 
     public virtual bool CanTriggerChange(T currentValue, T newValue)
