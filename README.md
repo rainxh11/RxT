@@ -1,6 +1,6 @@
 ![](https://raw.githubusercontent.com/rainxh11/RxT/master/RxT.svg)
 
-|||
+|Version|Downloads|
 |-|-|
 |[![Latest version](https://img.shields.io/nuget/v/RxT.svg)](https://www.nuget.org/packages/RxT/)|![Downloads](https://img.shields.io/nuget/dt/RxT.svg)|
 
